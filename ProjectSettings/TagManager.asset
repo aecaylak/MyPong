@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Racket
+  - goalLose
+  - goalWin
   layers:
   - Default
   - TransparentFX

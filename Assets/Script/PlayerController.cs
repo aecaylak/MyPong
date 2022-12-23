@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float limitH = 2.2f;
     [SerializeField] private bool isPlayer;
+    [SerializeField] private float aiSpeed;
     private void Update()
     {
         Vector3 newPosition = transform.position;
@@ -19,7 +21,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            var ai = BallMovement.Instance.transform.position.x;
+            var ai = Mathf.Lerp(newPosition.x, BallMovement.Instance.transform.position.x, aiSpeed * Time.deltaTime); //a ile b arasını t kadar bölüm bölüm gidecek
             newPosition.x = ai;
         }
         
